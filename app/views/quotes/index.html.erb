@@ -1,0 +1,8 @@
+<h1>Quotes</h1>
+
+<% @quotes.each do |quote| %>
+	<h2><%= quote.author %></h2>
+	<div><%= truncate(quote.quote, :length => 10) %></div>
+	<br>
+	<%= link_to "Read Quote", quote %>
+<% end %>

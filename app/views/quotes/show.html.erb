@@ -1,0 +1,5 @@
+<h1><%= @quote.author %></h1>
+<div><%= @quote.quote %></div>
+<br>
+<%= link_to "Edit Quote", edit_quote_path(@quote) %>
+<%= link_to "Delete Quote", quote_path(@quote), method: :delete, data: {confirm: "Are you sure?"} %>
