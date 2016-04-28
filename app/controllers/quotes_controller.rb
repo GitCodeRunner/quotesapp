@@ -12,7 +12,7 @@ class QuotesController < ApplicationController
   def show
   	respond_to do |format|
   		format.html
-  		format.json { render json: @quotes }
+  		format.json { render json: @quote }
   end
 
   def new
