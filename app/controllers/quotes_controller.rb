@@ -3,9 +3,16 @@ class QuotesController < ApplicationController
 
   def index
   	@quotes = Quote.all.order("created_at DESC")
+
+  	respond_to do |format|
+  		format.json { render json: @quotes }
+  	end
   end
 
   def show
+  	respond_to do |format|
+  		format.html
+  		format.json { render json: @quotes }
   end
 
   def new
