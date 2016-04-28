@@ -6,7 +6,6 @@ class QuotesController < ApplicationController
 
   	respond_to do |format|
   		format.json { render json: @quotes }
-  	end
   end
 
   def show
