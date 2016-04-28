@@ -5,13 +5,16 @@ class QuotesController < ApplicationController
   	@quotes = Quote.all.order("created_at DESC")
 
   	respond_to do |format|
-  		format.json { render json: @quotes }
+  		format.json do
+  			render json: @quote.to_json
+  	end
   end
 
   def show
   	respond_to do |format|
-  		format.html
-  		format.json { render json: @quote }
+  		format.json do
+  			render json: @quote.to_json
+  	end
   end
 
   def new
