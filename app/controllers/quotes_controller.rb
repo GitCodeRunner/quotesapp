@@ -1,20 +1,23 @@
 class QuotesController < ApplicationController
 	before_action :find_quote, only: [:show, :edit, :update, :destroy]
+	respond_to :json, :html
 
   def index
   	@quotes = Quote.all.order("created_at DESC")
 
   	respond_to do |format|
-  		format.json do
-  			render json: @quote.to_json
-  	end
+  format.html # show.html.erb
+  format.xml  { render :xml => @quotes }
+  format.json { render :json => @quotes }
+end
   end
 
   def show
   	respond_to do |format|
-  		format.json do
-  			render json: @quote.to_json
-  	end
+  format.html # show.html.erb
+  format.xml  { render :xml => @quote }
+  format.json { render :json => @quote }
+end
   end
 
   def new
