@@ -7,7 +7,7 @@ class QuotesController < ApplicationController
 
   	respond_to do |format|
   format.html # show.html.erb
-  format.xml  { render :xml => @quotes }
+  format.xml  { render :xml => @quotes, :callback => params[:callback] }
   format.json { render :json => @quotes, :callback => params[:callback] }
 end
   end
@@ -15,7 +15,7 @@ end
   def show
   	respond_to do |format|
   format.html # show.html.erb
-  format.xml  { render :xml => @quote }
+  format.xml  { render :xml => @quote, :callback => params[:callback] }
   format.json { render :json => @quote, :callback => params[:callback] }
 end
   end
