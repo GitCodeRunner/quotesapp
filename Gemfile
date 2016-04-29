@@ -53,3 +53,4 @@ group :production do
 end
 
 gem 'responders', '~> 2.0'
+gem 'rack-cors', :require => 'rack/cors'
