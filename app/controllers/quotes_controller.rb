@@ -1,5 +1,6 @@
 class QuotesController < ApplicationController
 	before_action :find_quote, only: [:show, :edit, :update, :destroy]
+  after_action :set_access_control_headers
 	respond_to :json, :html
 
   def index
@@ -60,5 +61,10 @@ end
   def find_quote
   	@quote = Quote.find(params[:id])
   end
+
+  def set_access_control_headers
+   headers['Access-Control-Allow-Origin'] = "https://quotesappfree.herokuapp.com/quotes"
+   headers['Access-Control-Request-Method'] = %w{GET POST OPTIONS}.join(",")
+ end
 
 end
